@@ -1,7 +1,7 @@
-// Licensed to the .NET Foundation under one or more agreements.
+﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-using SmartComponents.Inference.OpenAI;
+using Microsoft.Extensions.AI.Abstractions;
 using SmartComponents.LocalEmbeddings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +11,6 @@ builder.Configuration.AddRepoSharedConfig();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSmartComponents()
-    .WithInferenceBackend<OpenAIInferenceBackend>()
     .WithAntiforgeryValidation();
 
 builder.Services.AddSingleton<LocalEmbedder>();
